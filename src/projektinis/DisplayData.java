@@ -343,7 +343,7 @@ public class DisplayData {
 					Float.parseFloat(fields[5]));
 			table_view.getItems().add(record);
 		}
-
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataCPU = newValue;
 		});
@@ -392,6 +392,7 @@ public class DisplayData {
 					Float.parseFloat(fields[5]));
 			table_view.getItems().add(record);
 		}
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataMB = newValue;
 		});
@@ -434,6 +435,7 @@ public class DisplayData {
 					Float.parseFloat(fields[3]));
 			table_view.getItems().add(record);
 		}
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataGPU = newValue;
 		});
@@ -486,6 +488,7 @@ public class DisplayData {
 					Float.parseFloat(fields[5]));
 			table_view.getItems().add(record);
 		}
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataRAM = newValue;
 		});
@@ -544,6 +547,7 @@ public class DisplayData {
 					Float.parseFloat(fields[6]));
 			table_view.getItems().add(record);
 		}
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataStorage = newValue;
 		});
@@ -595,6 +599,7 @@ public class DisplayData {
 					Float.parseFloat(fields[5]));
 			table_view.getItems().add(record);
 		}
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataPower = newValue;
 		});
@@ -637,6 +642,7 @@ public class DisplayData {
 					Float.parseFloat(fields[3]));
 			table_view.getItems().add(record);
 		}
+		scanner.close();
 		table_view.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			selectedRowDataCase = newValue;
 		});
