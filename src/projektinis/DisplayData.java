@@ -539,8 +539,8 @@ public class DisplayData {
 					fields[1],
 					fields[2],
 					fields[3],
-					fields[4],
 					fields[5],
+					fields[4],
 					Float.parseFloat(fields[6]));
 			table_view.getItems().add(record);
 		}
