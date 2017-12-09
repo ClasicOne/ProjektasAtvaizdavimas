@@ -25,7 +25,7 @@ public class Main extends Application  {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        primaryStage.setTitle("TEst");
+        primaryStage.setTitle("Kompiuterių detalių prekybos programga");
         GridPane gridPane = new GridPane();
 
         {
