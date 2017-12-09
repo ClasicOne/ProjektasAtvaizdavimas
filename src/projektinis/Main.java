@@ -39,9 +39,10 @@ public class Main extends Application  {
             gridPane.add(cpuLable,0,0);
             Button cpuButton = new Button();
             cpuButton.setText("Rodyti procesorių sąrašą");
+
             cpuButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","cpu");
+                    DisplayData.display("Procesoriu sarasas","Hi","cpu");
                     cpuButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -54,7 +55,7 @@ public class Main extends Application  {
             Button mbButton = new Button("Rodyti pagrindinių plokščių sąraąa");
             mbButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","mb");
+                    DisplayData.display("Pagrindiu plokeciu sarasas","Hi","mb");
                     mbButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -67,7 +68,7 @@ public class Main extends Application  {
             Button gpuButton = new Button("Rodyti vaizdo plokščių sąrašą");
             gpuButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","gpu");
+                    DisplayData.display("Vaizdo ploksciu sarasas","Hi","gpu");
                     gpuButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -80,7 +81,7 @@ public class Main extends Application  {
             Button ramButton = new Button("Rodyti operativių atminčių sąrašą");
             ramButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","ram");
+                    DisplayData.display("Operativiu atminciu sarasas","Hi","ram");
                     ramButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -93,7 +94,7 @@ public class Main extends Application  {
             Button storageButton = new Button("Rodyti HDD/SSD sąrašą");
             storageButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","storage");
+                    DisplayData.display("HDD/SSD diskai","Hi","storage");
                     storageButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -101,12 +102,12 @@ public class Main extends Application  {
             });
             gridPane.add(storageButton,1, 3,1,1);
 
-            Label powerLabel = new Label("Power :");
+            Label powerLabel = new Label("Maitinimo bloku :");
             gridPane.add(powerLabel,2,2);
-            Button powerButton = new Button("Rodyti Power sarasa");
+            Button powerButton = new Button("Rodyti Matinimo bloku sarasa");
             powerButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","power");
+                    DisplayData.display("Maitinimo bloku sarasa","Hi","power");
                     powerButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -119,7 +120,7 @@ public class Main extends Application  {
             Button caseButton = new Button("Rodyti korpusų sąrašą");
             caseButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Title","Hi","case");
+                    DisplayData.display("Korpusu sarasas","Hi","case");
                     caseButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
