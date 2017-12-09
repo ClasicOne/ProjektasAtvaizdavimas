@@ -1,0 +1,13 @@
+NZXT S340; ATX Mid Tower; Nera; 70
+Azza SIRIUS; ATX Mid Tower; Nera; 20
+Corsair 200R; ATX Mid Tower; Nera; 42
+Corsair 750D; ATX Full Tower; Nera; 150
+Cooler Master N200; MicroATX Mini Tower; Nera; 45
+Corsair Crystal 460X RGB; ATX Mid Tower; Nera; 130
+Rosewill FBM-01; MicroATX Mini Tower; Nera; 23
+Corsair 100R; ATX Mid Tower; Nera; 50
+Phanteks Enthoo Pro; ATX Full Tower; Nera; 100
+Corsair Carbide 400C; ATX Mid Tower; Nera; 98
+Corsair 500R Black; ATX Mid Tower; Nera; 70
+Thermaltake Versa H15; MicroATX Mid Tower; Nera; 38
+Corsair Air 540; ATX Mid Tower; Nera; 120

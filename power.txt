@@ -1,0 +1,12 @@
+EVGA; SuperNOVA 650; 80+ Gold; ATX1; 650W; 75
+Corsair; CX450M; 80+ Bronze; ATX; 450W; 50
+EVGA; 500B; 80+ Bronze; ATX; 500W; 37
+EVGA; SuperNOVA 750; 80+ Gold; ATX; 750W; 100
+EVGA; SUperNOVA 550; 80+ Gold; ATX; 550W; 70
+EVGA; SuperNOVA 650; 80+ Gold; ATX; 650W; 85
+Corsair; RM750x; 80+ Gold; ATX; 750W; 100
+Corsair; RM650x; 80+ Gold; ATX; 650W; 83
+Corsair; CX500; 80+ Bronze; ATX; 500W; 33
+Corsair; CS500M; 80+ Bronze; ATX; 550W; 60
+Corsair; CS750M; 80+ Gold; ATX; 750W; 90
+Rosewill; Glacier 600M; 80+ Bronze; ATX; 600W; 45

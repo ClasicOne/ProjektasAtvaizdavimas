@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="projektasatvaizdavimas" default="all">
+  
+  
+  <property file="projektasatvaizdavimas.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="../../JetBrains/IntelliJ IDEA 2017.3/plugins/javaFX/lib/javaFX-jps-plugin.jar"/>
+      <include name="../../JetBrains/IntelliJ IDEA 2017.3/plugins/javaFX/lib/common-javaFX-plugin.jar"/>
+      <include name="../../JetBrains/IntelliJ IDEA 2017.3/plugins/javaFX/lib/javaFX.jar"/>
+      <include name="../../JetBrains/IntelliJ IDEA 2017.3/plugins/javaFX/lib/SceneBuilderKit-8.2.0.jar"/>
+      <include name="../../JetBrains/IntelliJ IDEA 2017.3/plugins/javaFX/lib/resources_en.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module FX Event Handling -->
+  
+  <dirname property="module.fx_event_handling.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.fx_event_handling" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.fx_event_handling" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.fx_event_handling" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.fx_event_handling" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="fx_event_handling.output.dir" value="${module.fx_event_handling.basedir}/out/production/FX Event Handling"/>
+  <property name="fx_event_handling.testoutput.dir" value="${module.fx_event_handling.basedir}/out/test/FX Event Handling"/>
+  
+  <path id="fx_event_handling.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="fx_event_handling.module.production.classpath">
+    <path refid="${module.jdk.classpath.fx_event_handling}"/>
+  </path>
+  
+  <path id="fx_event_handling.runtime.production.module.classpath">
+    <pathelement location="${fx_event_handling.output.dir}"/>
+  </path>
+  
+  <path id="fx_event_handling.module.classpath">
+    <path refid="${module.jdk.classpath.fx_event_handling}"/>
+    <pathelement location="${fx_event_handling.output.dir}"/>
+  </path>
+  
+  <path id="fx_event_handling.runtime.module.classpath">
+    <pathelement location="${fx_event_handling.testoutput.dir}"/>
+    <pathelement location="${fx_event_handling.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.fx_event_handling">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.fx_event_handling">
+    <patternset refid="excluded.from.module.fx_event_handling"/>
+  </patternset>
+  
+  <path id="fx_event_handling.module.sourcepath">
+    <dirset dir="${module.fx_event_handling.basedir}/../Grafine sasaja java/FX Event Handling">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.fx_event_handling" depends="compile.module.fx_event_handling.production,compile.module.fx_event_handling.tests" description="Compile module FX Event Handling"/>
+  
+  <target name="compile.module.fx_event_handling.production" depends="register.custom.compilers" description="Compile module FX Event Handling; production classes">
+    <mkdir dir="${fx_event_handling.output.dir}"/>
+    <javac2 destdir="${fx_event_handling.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fx_event_handling}/javac">
+      <compilerarg line="${compiler.args.fx_event_handling}"/>
+      <bootclasspath refid="fx_event_handling.module.bootclasspath"/>
+      <classpath refid="fx_event_handling.module.production.classpath"/>
+      <src refid="fx_event_handling.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.fx_event_handling"/>
+    </javac2>
+    
+    <copy todir="${fx_event_handling.output.dir}">
+      <fileset dir="${module.fx_event_handling.basedir}/../Grafine sasaja java/FX Event Handling/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.fx_event_handling.tests" depends="register.custom.compilers,compile.module.fx_event_handling.production" description="compile module FX Event Handling; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.fx_event_handling" description="cleanup module">
+    <delete dir="${fx_event_handling.output.dir}"/>
+    <delete dir="${fx_event_handling.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module MeniuApp -->
+  
+  <dirname property="module.meniuapp.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.meniuapp" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.meniuapp" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.meniuapp" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.meniuapp" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="meniuapp.output.dir" value="${module.meniuapp.basedir}/../Grafine sasaja java/MeniuApp/bin"/>
+  <property name="meniuapp.testoutput.dir" value="${module.meniuapp.basedir}/../Grafine sasaja java/MeniuApp/bin"/>
+  
+  <path id="meniuapp.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="meniuapp.module.production.classpath">
+    <path refid="${module.jdk.classpath.meniuapp}"/>
+  </path>
+  
+  <path id="meniuapp.runtime.production.module.classpath">
+    <pathelement location="${meniuapp.output.dir}"/>
+  </path>
+  
+  <path id="meniuapp.module.classpath">
+    <pathelement location="${meniuapp.output.dir}"/>
+    <path refid="${module.jdk.classpath.meniuapp}"/>
+  </path>
+  
+  <path id="meniuapp.runtime.module.classpath">
+    <pathelement location="${meniuapp.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.meniuapp">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.meniuapp">
+    <patternset refid="excluded.from.module.meniuapp"/>
+  </patternset>
+  
+  <path id="meniuapp.module.sourcepath">
+    <dirset dir="${module.meniuapp.basedir}/../Grafine sasaja java/MeniuApp">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.meniuapp" depends="compile.module.meniuapp.production,compile.module.meniuapp.tests" description="Compile module MeniuApp"/>
+  
+  <target name="compile.module.meniuapp.production" depends="register.custom.compilers" description="Compile module MeniuApp; production classes">
+    <mkdir dir="${meniuapp.output.dir}"/>
+    <javac2 destdir="${meniuapp.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.meniuapp}/javac">
+      <compilerarg line="${compiler.args.meniuapp}"/>
+      <bootclasspath refid="meniuapp.module.bootclasspath"/>
+      <classpath refid="meniuapp.module.production.classpath"/>
+      <src refid="meniuapp.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.meniuapp"/>
+    </javac2>
+    
+    <copy todir="${meniuapp.output.dir}">
+      <fileset dir="${module.meniuapp.basedir}/../Grafine sasaja java/MeniuApp/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.meniuapp.tests" depends="register.custom.compilers,compile.module.meniuapp.production" description="compile module MeniuApp; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.meniuapp" description="cleanup module">
+    <delete dir="${meniuapp.output.dir}"/>
+    <delete dir="${meniuapp.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module O -->
+  
+  <dirname property="module.o.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.o" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.o" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.o" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.o" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="o.output.dir" value="${module.o.basedir}/out/production/O"/>
+  <property name="o.testoutput.dir" value="${module.o.basedir}/out/test/O"/>
+  
+  <path id="o.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="o.module.production.classpath">
+    <path refid="${module.jdk.classpath.o}"/>
+  </path>
+  
+  <path id="o.runtime.production.module.classpath">
+    <pathelement location="${o.output.dir}"/>
+  </path>
+  
+  <path id="o.module.classpath">
+    <path refid="${module.jdk.classpath.o}"/>
+    <pathelement location="${o.output.dir}"/>
+  </path>
+  
+  <path id="o.runtime.module.classpath">
+    <pathelement location="${o.testoutput.dir}"/>
+    <pathelement location="${o.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.o">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.o">
+    <patternset refid="excluded.from.module.o"/>
+  </patternset>
+  
+  <path id="o.module.sourcepath">
+    <dirset dir="${module.o.basedir}/../Grafine sasaja java/O">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.o" depends="compile.module.o.production,compile.module.o.tests" description="Compile module O"/>
+  
+  <target name="compile.module.o.production" depends="register.custom.compilers" description="Compile module O; production classes">
+    <mkdir dir="${o.output.dir}"/>
+    <javac2 destdir="${o.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.o}/javac">
+      <compilerarg line="${compiler.args.o}"/>
+      <bootclasspath refid="o.module.bootclasspath"/>
+      <classpath refid="o.module.production.classpath"/>
+      <src refid="o.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.o"/>
+    </javac2>
+    
+    <copy todir="${o.output.dir}">
+      <fileset dir="${module.o.basedir}/../Grafine sasaja java/O/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.o.tests" depends="register.custom.compilers,compile.module.o.production" description="compile module O; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.o" description="cleanup module">
+    <delete dir="${o.output.dir}"/>
+    <delete dir="${o.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module ProjektasAtvaizdavimas -->
+  
+  <dirname property="module.projektasatvaizdavimas.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.projektasatvaizdavimas" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.projektasatvaizdavimas" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.projektasatvaizdavimas" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.projektasatvaizdavimas" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="projektasatvaizdavimas.output.dir" value="${module.projektasatvaizdavimas.basedir}/out/production/ProjektasAtvaizdavimas"/>
+  <property name="projektasatvaizdavimas.testoutput.dir" value="${module.projektasatvaizdavimas.basedir}/out/test/ProjektasAtvaizdavimas"/>
+  
+  <path id="projektasatvaizdavimas.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="projektasatvaizdavimas.module.production.classpath">
+    <path refid="${module.jdk.classpath.projektasatvaizdavimas}"/>
+  </path>
+  
+  <path id="projektasatvaizdavimas.runtime.production.module.classpath">
+    <pathelement location="${projektasatvaizdavimas.output.dir}"/>
+  </path>
+  
+  <path id="projektasatvaizdavimas.module.classpath">
+    <path refid="${module.jdk.classpath.projektasatvaizdavimas}"/>
+    <pathelement location="${projektasatvaizdavimas.output.dir}"/>
+  </path>
+  
+  <path id="projektasatvaizdavimas.runtime.module.classpath">
+    <pathelement location="${projektasatvaizdavimas.testoutput.dir}"/>
+    <pathelement location="${projektasatvaizdavimas.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.projektasatvaizdavimas">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.projektasatvaizdavimas">
+    <patternset refid="excluded.from.module.projektasatvaizdavimas"/>
+  </patternset>
+  
+  <path id="projektasatvaizdavimas.module.sourcepath">
+    <dirset dir="${module.projektasatvaizdavimas.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.projektasatvaizdavimas" depends="compile.module.projektasatvaizdavimas.production,compile.module.projektasatvaizdavimas.tests" description="Compile module ProjektasAtvaizdavimas"/>
+  
+  <target name="compile.module.projektasatvaizdavimas.production" depends="register.custom.compilers" description="Compile module ProjektasAtvaizdavimas; production classes">
+    <mkdir dir="${projektasatvaizdavimas.output.dir}"/>
+    <javac2 destdir="${projektasatvaizdavimas.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.projektasatvaizdavimas}/javac">
+      <compilerarg line="${compiler.args.projektasatvaizdavimas}"/>
+      <bootclasspath refid="projektasatvaizdavimas.module.bootclasspath"/>
+      <classpath refid="projektasatvaizdavimas.module.production.classpath"/>
+      <src refid="projektasatvaizdavimas.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.projektasatvaizdavimas"/>
+    </javac2>
+    
+    <copy todir="${projektasatvaizdavimas.output.dir}">
+      <fileset dir="${module.projektasatvaizdavimas.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.projektasatvaizdavimas.tests" depends="register.custom.compilers,compile.module.projektasatvaizdavimas.production" description="compile module ProjektasAtvaizdavimas; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.projektasatvaizdavimas" description="cleanup module">
+    <delete dir="${projektasatvaizdavimas.output.dir}"/>
+    <delete dir="${projektasatvaizdavimas.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.fx_event_handling, clean.module.meniuapp, clean.module.o, clean.module.projektasatvaizdavimas" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.fx_event_handling, compile.module.meniuapp, compile.module.o, compile.module.projektasatvaizdavimas" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.projektasatvaizdavimas:jar" value="${basedir}/out/artifacts/ProjektasAtvaizdavimas_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.ProjektasAtvaizdavimas.jar" value="${artifacts.temp.dir}/ProjektasAtvaizdavimas.jar"/>
+  </target>
+  
+  <target name="artifact.projektasatvaizdavimas:jar" depends="init.artifacts, compile.module.projektasatvaizdavimas" description="Build &#39;ProjektasAtvaizdavimas:jar&#39; artifact">
+    <property name="artifact.temp.output.projektasatvaizdavimas:jar" value="${artifacts.temp.dir}/ProjektasAtvaizdavimas_jar"/>
+    <mkdir dir="${artifact.temp.output.projektasatvaizdavimas:jar}"/>
+    <jar destfile="${temp.jar.path.ProjektasAtvaizdavimas.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset file="${basedir}/../Grafine sasaja java/FX Event Handling/src/META-INF/MANIFEST.MF" prefix="META-INF"/>
+      <zipfileset dir="${projektasatvaizdavimas.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.ProjektasAtvaizdavimas.jar}" tofile="${artifact.temp.output.projektasatvaizdavimas:jar}/ProjektasAtvaizdavimas.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.projektasatvaizdavimas:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.projektasatvaizdavimas:jar}"/>
+    <copy todir="${artifact.output.projektasatvaizdavimas:jar}">
+      <fileset dir="${artifact.temp.output.projektasatvaizdavimas:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

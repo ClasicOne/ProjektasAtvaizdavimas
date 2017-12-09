@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ProjektasAtvaizdavimas:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjektasAtvaizdavimas_jar</output-path>
+    <root id="archive" name="ProjektasAtvaizdavimas.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../Grafine sasaja java/FX Event Handling/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="ProjektasAtvaizdavimas" />
+    </root>
+  </artifact>
+</component>

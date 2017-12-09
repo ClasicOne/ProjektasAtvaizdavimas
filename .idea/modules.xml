@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Grafine sasaja java/MeniuApp/FX Event Handling.iml" filepath="$PROJECT_DIR$/../Grafine sasaja java/MeniuApp/FX Event Handling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Grafine sasaja java/MeniuApp/MeniuApp.iml" filepath="$PROJECT_DIR$/../Grafine sasaja java/MeniuApp/MeniuApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Grafine sasaja java/O/O.iml" filepath="$PROJECT_DIR$/../Grafine sasaja java/O/O.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjektasAtvaizdavimas.iml" filepath="$PROJECT_DIR$/ProjektasAtvaizdavimas.iml" />
+    </modules>
+  </component>
+</project>

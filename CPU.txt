@@ -1,0 +1,12 @@
+Intel; Core i76700K; 4; 4.0;  LGA1151; 309
+AMD; Ryzen 7 1700; 8; 3.0;  AM4; 300
+AMD; Ryzen 5 1600; 6; 3.2;  AM4; 210
+Intel; Core i77770K; 4; 4.2;  LGA1155; 329
+Intel; Core i76950X; 10;  3.0;  LGA20113; 410
+AMD; FX8350; 8; 4.0; AM3+; 121
+AMD; FX6300; 6; 3.5; AM3+; 77
+Intel; Core i36100; 2; 3.7; LGA1151; 110
+Intel; Core i56500; 4; 3.2; LGA1151; 187
+Intel; Core i56600K; 4; 3.5; LGA1151; 217
+AMD; Ryzen 5 1600X; 6; 3.6; AM4; 236
+AMD; Ryzen 5 1400; 4; 3.2; AM4; 159

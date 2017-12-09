@@ -1,0 +1,12 @@
+Corsair Vengeance LPX ; DDR4; 3000; 2x8GB; 16GB; 127.00
+Crucial; DDR4; 2133; 1x8GB; 8GB; 50.00
+Crucial Ballistix; DDR4; 2400; 1x8GB; 8GB; 55.00
+G.Skill Trident Z RGB; DDR4; 3200; 2x8GB; 16GB; 150.00
+GeIL EVO POTENZA; DDR4; 2400; 2x8GB; 16GB; 94.00
+G.Skill Ripjaws V; DDR4; 2400; 2x8GB; 16GB; 118.00
+Corsair Vengeance LPX ; DDR4; 3000; 2x4GB; 8GB; 74.00
+G.Skill Ripjaws V; DDR4; 3200; 2x8GB; 16GB; 130.00
+G.Skill Ripjaws V; DDR4; 3200; 2x16GB; 32GB; 264.00
+G.Skill Ripjaws V; DDR4; 2666; 2x8GB; 16GB; 105.00
+Crucial; DDR4; 2400; 1x64GB; 64GB; 769.00
+Kingston HyperX Fury; DDR4; 2133; 2x4GB; 8GB; 75.00
