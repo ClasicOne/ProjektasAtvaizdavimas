@@ -139,9 +139,10 @@ public class DisplayData {
 				break;
 			case "cpu":
 				if (saveMB != null)
-					if(selectedRowDataCPU.lizdoTipas.get().equals(saveMB.lizdoTipas.get()))
-					list = "CPU:\n Gamintojas: "+selectedRowDataCPU.gamintojas.get()+" | Modelis: "+selectedRowDataCPU.modelis.get()+" | Branduolių skaičius: "+selectedRowDataCPU.branduoliuSkaicius.get()+" | Taktinis Dažnis: "+selectedRowDataCPU.daznis.get()+" | Lizdo tipas: "+selectedRowDataCPU.lizdoTipas.get()+" | Kaina: "+selectedRowDataCPU.kaina.get()+" Eur";
-					else
+					if(selectedRowDataCPU.lizdoTipas.get().equals(saveMB.lizdoTipas.get())) {
+						list = "CPU:\n Gamintojas: " + selectedRowDataCPU.gamintojas.get() + " | Modelis: " + selectedRowDataCPU.modelis.get() + " | Branduolių skaičius: " + selectedRowDataCPU.branduoliuSkaicius.get() + " | Taktinis Dažnis: " + selectedRowDataCPU.daznis.get() + " | Lizdo tipas: " + selectedRowDataCPU.lizdoTipas.get() + " | Kaina: " + selectedRowDataCPU.kaina.get() + " Eur";
+						selectedRowDataCPU = null;
+					}else
 						value = 0;
 				else
 					list = "CPU:\n Gamintojas: "+selectedRowDataCPU.gamintojas.get()+" | Modelis: "+selectedRowDataCPU.modelis.get()+" | Branduolių skaičius: "+selectedRowDataCPU.branduoliuSkaicius.get()+" | Taktinis Dažnis: "+selectedRowDataCPU.daznis.get()+" | Lizdo tipas: "+selectedRowDataCPU.lizdoTipas.get()+" | Kaina: "+selectedRowDataCPU.kaina.get()+" Eur";
@@ -156,10 +157,12 @@ public class DisplayData {
 				break;
 			case "mb":
 				if (saveCPU != null)
-					if(selectedRowDataMB.lizdoTipas.get().equals(saveCPU.lizdoTipas.get()))
-						list = "Pagrindinė plokštė:\n Modelis: "+selectedRowDataMB.modelis.get()+" | Formos faktorius: "+selectedRowDataMB.formFactor.get()+" | CPU lizdo tipas: "+selectedRowDataMB.lizdoTipas.get()+" | RAM modolių talpa: "+selectedRowDataMB.ram.get()+" | Maksimalus RAM kiekis: "+selectedRowDataMB.maxRam.get()+" | Kaina: "+selectedRowDataMB.kaina.get()+" Eur";
-					else
-						value = 0;
+					if(selectedRowDataMB.lizdoTipas.get().equals(saveCPU.lizdoTipas.get())) {
+						list = "Pagrindinė plokštė:\n Modelis: " + selectedRowDataMB.modelis.get() + " | Formos faktorius: " + selectedRowDataMB.formFactor.get() + " | CPU lizdo tipas: " + selectedRowDataMB.lizdoTipas.get() + " | RAM modolių talpa: " + selectedRowDataMB.ram.get() + " | Maksimalus RAM kiekis: " + selectedRowDataMB.maxRam.get() + " | Kaina: " + selectedRowDataMB.kaina.get() + " Eur";
+						selectedRowDataMB = null;
+					}
+						else
+							value = 0;
 				else
 					list = "Pagrindinė plokštė:\n Modelis: "+selectedRowDataMB.modelis.get()+" | Formos faktorius: "+selectedRowDataMB.formFactor.get()+" | CPU lizdo tipas: "+selectedRowDataMB.lizdoTipas.get()+" | RAM modolių talpa: "+selectedRowDataMB.ram.get()+" | Maksimalus RAM kiekis: "+selectedRowDataMB.maxRam.get()+" | Kaina: "+selectedRowDataMB.kaina.get()+" Eur";
 
@@ -213,21 +216,18 @@ public class DisplayData {
 	}
 	private static void tableCPU(SplitPane viewersPane) throws IOException {
 		TableView<CPUDalys> tableView = new TableView<CPUDalys>();
-		tableView.setMinWidth(520);
+		tableView.setMinWidth(Region.USE_PREF_SIZE);
 		fillTableView(tableView);
-
 
 		tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		tableView.setEditable(true);
-
-
 		//--------------
 		viewersPane.setDividerPositions(0.3);
 		viewersPane.getItems().addAll( tableView);
 	}
 	private static void tableGPU(SplitPane viewersPane) throws IOException {
 		TableView<GPUDalys> tableView = new TableView<>();
-		tableView.setMinWidth(520);
+		tableView.setMinWidth(600);
 		fillTableViewGPU(tableView);
 
 
@@ -374,14 +374,14 @@ public class DisplayData {
 		col_kaina.setCellValueFactory(new PropertyValueFactory<>("kaina"));
 		col_kaina.setMinWidth(Region.USE_PREF_SIZE);
 
-		table_view.getColumns().addAll(col_modelis, col_formFactor, col_lizdoTipas, col_ram, col_maxRam, col_kaina);
+		table_view.getColumns().addAll(col_modelis,  col_lizdoTipas,col_formFactor, col_ram, col_maxRam, col_kaina);
 
 		Scanner scanner = new Scanner(new FileReader("mb.txt"));
 		MBDalys record = null;
 		while (scanner.hasNext()){
 			String[] fields = scanner.nextLine().trim().split("; ");
-			/*for (int i=0;i<fields.length;i++)
-				System.out.println(""+ fields[i]+"   "+i);*/
+			for (int i=0;i<fields.length;i++)
+				System.out.println(""+ fields[i]+"   "+i);
 			record = new MBDalys(
 					fields[0],
 					fields[1],
@@ -449,12 +449,12 @@ public class DisplayData {
 		col_atmintiesTech.setCellValueFactory(new PropertyValueFactory<>("atmintiesTech"));
 		col_atmintiesTech.setMinWidth(50);
 
-		TableColumn<RAMDalys, String> col_daznis = new  TableColumn<>("Magistralės dažnis");
-		col_daznis.setCellValueFactory(new PropertyValueFactory<>("magistrale"));
-		col_daznis.setMinWidth(50);
+		TableColumn<RAMDalys, String> col_magistrale = new  TableColumn<>("Magistralės dažnis");
+		col_magistrale.setCellValueFactory(new PropertyValueFactory<>("magistrale"));
+		col_magistrale.setMinWidth(50);
 
 		TableColumn<RAMDalys, String> col_moduliai = new  TableColumn<>("Moduliai");
-		col_moduliai.setCellValueFactory(new PropertyValueFactory<>("magistrale"));
+		col_moduliai.setCellValueFactory(new PropertyValueFactory<>("moduliai"));
 		col_moduliai.setMinWidth(50);
 
 		TableColumn<RAMDalys, String> col_talpa = new  TableColumn<>("Talpa");
@@ -465,7 +465,7 @@ public class DisplayData {
 		col_kaina.setCellValueFactory(new PropertyValueFactory<RAMDalys, Float>("kaina"));
 		col_kaina.setMinWidth(50);
 
-		table_view.getColumns().addAll(col_modelis,col_atmintiesTech, col_daznis, col_moduliai, col_talpa, col_kaina);
+		table_view.getColumns().addAll(col_modelis,col_atmintiesTech, col_magistrale, col_moduliai, col_talpa, col_kaina);
 
 		//-----------------
 		//TextFileReader tfr = new TextFileReader("CPU.txt", ';', true);
