@@ -8,8 +8,7 @@ import javafx.beans.property.StringProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -30,8 +29,8 @@ public class Main extends Application  {
 
         {
             gridPane.setAlignment(Pos.TOP_LEFT);
-            gridPane.setVgap(20);
-            gridPane.setHgap(20);
+            gridPane.setVgap(10);
+            gridPane.setHgap(10);
             gridPane.setPadding(new Insets(10, 10, 10, 10));
 
 
@@ -43,7 +42,7 @@ public class Main extends Application  {
             cpuButton.setOnAction(event -> {
                 try {
                     DisplayData.display("Procesoriu sarasas","Hi","cpu");
-                    cpuButton.setDisable(true);
+                  //  cpuButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -56,7 +55,7 @@ public class Main extends Application  {
             mbButton.setOnAction(event -> {
                 try {
                     DisplayData.display("Pagrindiu plokeciu sarasas","Hi","mb");
-                    mbButton.setDisable(true);
+                   // mbButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -69,7 +68,7 @@ public class Main extends Application  {
             gpuButton.setOnAction(event -> {
                 try {
                     DisplayData.display("Vaizdo ploksciu sarasas","Hi","gpu");
-                    gpuButton.setDisable(true);
+                    //gpuButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -82,7 +81,7 @@ public class Main extends Application  {
             ramButton.setOnAction(event -> {
                 try {
                     DisplayData.display("Operativiu atminciu sarasas","Hi","ram");
-                    ramButton.setDisable(true);
+                    //ramButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -95,7 +94,7 @@ public class Main extends Application  {
             storageButton.setOnAction(event -> {
                 try {
                     DisplayData.display("HDD/SSD diskai","Hi","storage");
-                    storageButton.setDisable(true);
+                    //storageButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -108,7 +107,7 @@ public class Main extends Application  {
             powerButton.setOnAction(event -> {
                 try {
                     DisplayData.display("Maitinimo bloku sarasa","Hi","power");
-                    powerButton.setDisable(true);
+                    //powerButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -121,20 +120,30 @@ public class Main extends Application  {
             caseButton.setOnAction(event -> {
                 try {
                     DisplayData.display("Korpusu sarasas","Hi","case");
-                    caseButton.setDisable(true);
+                   // caseButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
             gridPane.add(caseButton,1, 5,1,1);
-            //-------------
-			/*ListView<String> listView = new ListView<String>();
-			listView.setMinWidth(100);
-			//fillListView(listView);
-			listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);*/
+            Label delelteLable = new Label("Ištrinti");
+            Button deleteButton = new Button("Pašalinti iš sąrašo");
+            deleteButton.setOnAction(event -> {
+                        listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+                    });
+            deleteButton.setStyle("-fx-background-color: \n" +
+                    "        linear-gradient(#f2f2f2, #d6d6d6),\n" +
+                    "        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),\n" +
+                    "        linear-gradient(#dddddd 0%, #f6f6f6 50%);\n" +
+                    "    -fx-background-radius: 8,7,6;\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );");
 
+            //gridPane.add(delelteLable, 6,5);
+            gridPane.add(deleteButton, 2,5,1,1);
 
-            gridPane.add(listView, 0,6,15,1);
+            gridPane.add(listView, 0,6,6,1);
 
 
         }

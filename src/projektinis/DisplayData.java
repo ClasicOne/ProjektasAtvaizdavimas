@@ -150,7 +150,6 @@ public class DisplayData {
 				selectedRowDataCPU = null;
 				break;
 			case "gpu":
-
 				list = "Vaizdo plokštė:\n Modelis: "+selectedRowDataGPU.modelis.get()+" | Atmintis: "+selectedRowDataGPU.atmintis.get()+" | Taktinis dažnis: "+selectedRowDataGPU.daznis.get()+" | Kaina: "+selectedRowDataGPU.kaina.get()+" Eur";
 				listView.getItems().add(list);
 				selectedRowDataGPU = null;
