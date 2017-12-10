@@ -51,7 +51,7 @@ public class DisplayData {
 		Stage window = new Stage();
 		window.setTitle(title);
 		GridPane gridPane = new GridPane();
-		 button = new Button("Prodeti i sarasa");
+		 button = new Button("Prodėti į sarašą");
 		SplitPane viewersPane = new SplitPane();
 		{
 			viewersPane.setOrientation(Orientation.VERTICAL);
@@ -83,6 +83,19 @@ public class DisplayData {
 			}
 			viewersPane.getItems().add(button);
 		}
+		button.setStyle("-fx-background-color: \n" +
+				"        #090a0c,\n" +
+				"        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+				"        linear-gradient(#20262b, #191d22),\n" +
+				"        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+				"    -fx-background-radius: 5,4,3,5;\n" +
+				"    -fx-background-insets: 0,1,2,0;\n" +
+				"    -fx-text-fill: white;\n" +
+				"    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+				"    -fx-font-family: \"Arial Black\";\n" +
+				"    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+				"    -fx-font-size: 12px;\n" +
+				"    -fx-padding: 10 10 10 10;");
 		button.setOnAction(event -> {
 			if (	selectedRowDataStorage != null ||
 					selectedRowDataRAM != null ||
@@ -138,8 +151,10 @@ public class DisplayData {
 				selectedRowDataCase = null;
 				break;
 			case "cpu":
+			//	String  asd = selectedRowDataCPU.lizdoTipas.get().trim();
+			//	String a = saveMB.lizdoTipas.get().trim();
 				if (saveMB != null)
-					if(selectedRowDataCPU.lizdoTipas.get().equals(saveMB.lizdoTipas.get())) {
+					if(selectedRowDataCPU.lizdoTipas.get().replaceAll(" ","").equals(saveMB.lizdoTipas.get())) {
 						list = "CPU:\n Gamintojas: " + selectedRowDataCPU.gamintojas.get() + " | Modelis: " + selectedRowDataCPU.modelis.get() + " | Branduolių skaičius: " + selectedRowDataCPU.branduoliuSkaicius.get() + " | Taktinis Dažnis: " + selectedRowDataCPU.daznis.get() + " | Lizdo tipas: " + selectedRowDataCPU.lizdoTipas.get() + " | Kaina: " + selectedRowDataCPU.kaina.get() + " Eur";
 						selectedRowDataCPU = null;
 					}else
@@ -156,12 +171,13 @@ public class DisplayData {
 				selectedRowDataGPU = null;
 				break;
 			case "mb":
+//					String  asd = selectedRowDataMB.lizdoTipas.get().trim();
+//					String a = saveCPU.lizdoTipas.get().trim();
 				if (saveCPU != null)
-					if(selectedRowDataMB.lizdoTipas.get().equals(saveCPU.lizdoTipas.get())) {
+					if(selectedRowDataMB.lizdoTipas.get().trim().equals(saveCPU.lizdoTipas.get().trim())) {
 						list = "Pagrindinė plokštė:\n Modelis: " + selectedRowDataMB.modelis.get() + " | Formos faktorius: " + selectedRowDataMB.formFactor.get() + " | CPU lizdo tipas: " + selectedRowDataMB.lizdoTipas.get() + " | RAM modolių talpa: " + selectedRowDataMB.ram.get() + " | Maksimalus RAM kiekis: " + selectedRowDataMB.maxRam.get() + " | Kaina: " + selectedRowDataMB.kaina.get() + " Eur";
 						selectedRowDataMB = null;
-					}
-						else
+					}else
 							value = 0;
 				else
 					list = "Pagrindinė plokštė:\n Modelis: "+selectedRowDataMB.modelis.get()+" | Formos faktorius: "+selectedRowDataMB.formFactor.get()+" | CPU lizdo tipas: "+selectedRowDataMB.lizdoTipas.get()+" | RAM modolių talpa: "+selectedRowDataMB.ram.get()+" | Maksimalus RAM kiekis: "+selectedRowDataMB.maxRam.get()+" | Kaina: "+selectedRowDataMB.kaina.get()+" Eur";
@@ -171,10 +187,12 @@ public class DisplayData {
 				selectedRowDataMB = null;
 				break;
 			case "power":
+
 				if (saveMB != null)
-					if(selectedRowDataPower.forma.get().equals(saveMB.formFactor.get()))
-						list = "Maitinimo blokas:\n Gamintojas: "+selectedRowDataPower.gamintojas.get()+" | Modelis: "+selectedRowDataPower.modelis.get()+" | Efektyvumas: "+selectedRowDataPower.efektyvumas.get()+" | Formos faktorius: "+selectedRowDataPower.forma.get()+" | Maitinimo galia: "+selectedRowDataPower.galia.get()+" | Kaina: "+selectedRowDataPower.kaina.get()+" Eur";
-					else
+					if(selectedRowDataPower.forma.get().trim().equals(saveMB.formFactor.get().trim())) {
+						list = "Maitinimo blokas:\n Gamintojas: " + selectedRowDataPower.gamintojas.get() + " | Modelis: " + selectedRowDataPower.modelis.get() + " | Efektyvumas: " + selectedRowDataPower.efektyvumas.get() + " | Formos faktorius: " + selectedRowDataPower.forma.get() + " | Maitinimo galia: " + selectedRowDataPower.galia.get() + " | Kaina: " + selectedRowDataPower.kaina.get() + " Eur";
+						selectedRowDataPower = null;
+					}else
 						value = 0;
 				else
 					list = "Maitinimo blokas:\n Gamintojas: "+selectedRowDataPower.gamintojas.get()+" | Modelis: "+selectedRowDataPower.modelis.get()+" | Efektyvumas: "+selectedRowDataPower.efektyvumas.get()+" | Formos faktorius: "+selectedRowDataPower.forma.get()+" | Maitinimo galia: "+selectedRowDataPower.galia.get()+" | Kaina: "+selectedRowDataPower.kaina.get()+" Eur";
@@ -202,7 +220,7 @@ public class DisplayData {
 
 	private static void tableMB(SplitPane viewersPane) throws IOException {
 		TableView<MBDalys> tableView = new TableView<>();
-		tableView.setMinWidth(Region.USE_PREF_SIZE);
+		tableView.setMinWidth(710);
 		fillTableViewMB(tableView);
 
 
@@ -216,7 +234,7 @@ public class DisplayData {
 	}
 	private static void tableCPU(SplitPane viewersPane) throws IOException {
 		TableView<CPUDalys> tableView = new TableView<CPUDalys>();
-		tableView.setMinWidth(Region.USE_PREF_SIZE);
+		tableView.setMinWidth(520);
 		fillTableView(tableView);
 
 		tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -227,7 +245,7 @@ public class DisplayData {
 	}
 	private static void tableGPU(SplitPane viewersPane) throws IOException {
 		TableView<GPUDalys> tableView = new TableView<>();
-		tableView.setMinWidth(600);
+		tableView.setMinWidth(450);
 		fillTableViewGPU(tableView);
 
 
@@ -241,7 +259,7 @@ public class DisplayData {
 	}
 	private static void tableCase(SplitPane viewersPane) throws IOException {
 		TableView<CaseDalys> tableView = new TableView<>();
-		tableView.setMinWidth(520);
+		tableView.setMinWidth(410);
 		fillTableViewCase(tableView);
 
 
@@ -255,7 +273,7 @@ public class DisplayData {
 	}
 	private static void tableRAM(SplitPane viewersPane) throws IOException {
 		TableView<RAMDalys> tableView = new TableView<>();
-		tableView.setMinWidth(520);
+		tableView.setMinWidth(565);
 		fillTableViewRAM(tableView);
 
 
@@ -269,7 +287,7 @@ public class DisplayData {
 	}
 	private static void tablePower(SplitPane viewersPane) throws IOException {
 		TableView<PowerDalys> tableView = new TableView<>();
-		tableView.setMinWidth(520);
+		tableView.setMinWidth(553);
 		fillTableViewPower(tableView);
 
 
@@ -283,7 +301,7 @@ public class DisplayData {
 	}
 	private static void tableStorage(SplitPane viewersPane) throws IOException {
 		TableView<StorageDalys> tableView = new TableView<>();
-		tableView.setMinWidth(520);
+		tableView.setMinWidth(630);
 		fillTableViewStorage(tableView);
 
 
@@ -630,8 +648,8 @@ public class DisplayData {
 		//tring[] fields = null;
 		while (scanner.hasNext()){
 			String[] fields= scanner.nextLine().trim().split("; ");
-			for (int i=0;i<fields.length;i++)
-				System.out.println(""+ fields[i]+"   "+i);
+			/*for (int i=0;i<fields.length;i++)
+				System.out.println(""+ fields[i]+"   "+i);*/
 			//if (fields!= null)
 			//System.out.println(fields.length);
 			record = new CaseDalys(
