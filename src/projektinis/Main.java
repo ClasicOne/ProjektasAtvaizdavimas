@@ -30,7 +30,7 @@ public class Main extends Application  {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        primaryStage.setTitle("Kompiuterių detalių prekybos programga");
+        primaryStage.setTitle("Kompiuterių detalių prekybos programa");
         GridPane gridPane = new GridPane();
 
         {
@@ -73,7 +73,7 @@ public class Main extends Application  {
             Button mbButton = new Button("Rodyti pagrindinių plokščių sąraša");
             mbButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Pagrindių plokščiu sąrašas","Hi","mb");
+                    DisplayData.display("Pagrindių plokščių sąrašas","Hi","mb");
                    // mbButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -99,7 +99,7 @@ public class Main extends Application  {
             Button gpuButton = new Button("Rodyti vaizdo plokščių sąrašą");
             gpuButton.setOnAction(event -> {
                 try {
-                     DisplayData.display("Vaizdo plokščiu sąrašas","Hi","gpu");
+                     DisplayData.display("Vaizdo plokščių sąrašas","Hi","gpu");
                     //gpuButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -125,7 +125,7 @@ public class Main extends Application  {
             Button ramButton = new Button("Rodyti operatyviųjų atminčių sąrašą");
             ramButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Operativių atminčiu sąrašas","Hi","ram");
+                    DisplayData.display("Operativiųjų atminčių sąrašas","Hi","ram");
                     //ramButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -203,7 +203,7 @@ public class Main extends Application  {
             Button caseButton = new Button("Rodyti korpusų sąrašą");
             caseButton.setOnAction(event -> {
                 try {
-                    DisplayData.display("Korpusu sąrašas","Hi","case");
+                    DisplayData.display("Korpusų sąrašas","Hi","case");
                    // caseButton.setDisable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
